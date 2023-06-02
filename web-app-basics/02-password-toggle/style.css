@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main {
+  margin: 0 auto;
+  height: 500px;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  gap: 1em;
+}
+
+#button,
+#password {
+  font-family: "Roboto Slab", serif;
+  font-size: 1em;
+  border-radius: 0.25em;
+  border: 0.025em solid black;
+  align-self: center;
+}
+
+#button {
+  width: 10em;
+  padding: 0.5em 1em;
+}
+
+#password {
+  padding: 0.5em;
+}
