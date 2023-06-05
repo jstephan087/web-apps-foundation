@@ -1,13 +1,13 @@
 const check = document.querySelectorAll("input");
 const arr = [];
 
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", () => {
   check.forEach((x) => {
     if (x.checked) {
       x.checked = false;
     }
   });
-};
+});
 
 check.forEach((x) => {
   x.addEventListener("click", function () {
@@ -18,7 +18,7 @@ check.forEach((x) => {
       arr.splice(i, 1);
     }
     if (arr.length > 2) {
-      arr.map((y, z, k) => {
+      arr.forEach((y, z, k) => {
         if (y === x) {
           k[z - 1].checked = false;
         }
