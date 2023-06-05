@@ -1,16 +1,34 @@
+let counter = 0;
+let colorCounter = 0;
+const label = document.querySelector("label");
 const main = document.querySelector("main");
-const reset = document.querySelector("button");
-const counter = document.getElementById("counter");
-let count = 0;
+const resetButton = document.querySelector("button");
 
-main.addEventListener("click", function () {
-  count++;
-  counter.innerText = count;
-  main.style = `--counter: ${count}%`;
-});
+function myCounter() {
+  counter++;
+  label.innerText = counter;
 
-reset.addEventListener("click", function () {
-  count = 0;
-  counter.innerText = count;
-  main.style = "";
+  colorCounter++;
+  if (colorCounter === 101) {
+    colorCounter = 1;
+  }
+  main.style = `--counter: ${colorCounter}%`;
+}
+
+main.addEventListener("click", myCounter);
+
+function resetCounter() {
+  counter = 0;
+  colorCounter = 0;
+  label.innerText = counter;
+  main.style = "--counter: 0%";
+  resetButton.blur();
+}
+
+resetButton.addEventListener("click", resetCounter);
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" || event.key === " ") {
+    myCounter();
+  }
 });
