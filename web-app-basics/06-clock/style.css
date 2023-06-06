@@ -74,11 +74,15 @@ body {
 
 /* Digital Clock */
 
-.digital_clock {
+.digital-clock {
   display: inline-block;
   font-size: 2em;
 }
 
 .digit-dots {
   vertical-align: 3px;
+}
+
+.hidden {
+  visibility: hidden;
 }
