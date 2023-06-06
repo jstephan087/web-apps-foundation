@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  background-color: gold;
+}
+
+/* Analoge Clock */
+
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vmin;
+  height: 50vmin;
+  background-color: white;
+  border-radius: 50%;
+  border: 0.15em solid black;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.clock * {
+  position: absolute;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.clock-sec {
+  width: 2px;
+  height: 48%;
+  transform: rotate(var(--sec, 0deg)) translateY(-50%);
+}
+
+.clock-min {
+  width: 5px;
+  height: 48%;
+  transform: rotate(var(--min, 45deg)) translateY(-50%);
+}
+
+.clock-hour {
+  width: 5px;
+  height: 28%;
+  transform: rotate(var(--hour, 90deg)) translateY(-50%);
+}
+
+.clock-circle {
+  width: 2vmin;
+  height: 2vmin;
+  border-radius: 50%;
+}
+
+/* Digital Clock */
+
+.digital_clock {
+  display: inline-block;
+  font-size: 2em;
+}
+
+.digit-dots {
+  vertical-align: 3px;
+}
