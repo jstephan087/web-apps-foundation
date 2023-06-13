@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@500;700&family=Roboto&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+header.top-header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+  /*text-shadow: 2px 2px 2px rgb(249, 250, 251);*/
+  background: #242b31;
+  background: -moz-linear-gradient(
+    45deg,
+    #242b31 0%,
+    #081b27 50%,
+    #071b27 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #242b31 0%,
+    #081b27 50%,
+    #071b27 100%
+  );
+  background: linear-gradient(45deg, #2c363f 0%, #0d2331 50%, #0c2535 100%);
+}
+
+.top-header > h1 {
+  font-family: "Merienda", cursive;
+  background-image: url(https://www.tkrgroup.com/uploads/images/emo/oscar_color.gif);
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-transform: uppercase;
+  filter: hue-rotate(var(--random, 90deg)) brightness(1.25);
+}
+
+body {
+  background-color: rgb(250, 250, 250);
+}
+
+main {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1em;
+  justify-content: center;
+}
+
+.input-todo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+form {
+  position: relative;
+  grid-column: 2 span;
+}
+
+#text-input {
+  position: relative;
+  z-index: 5;
+  width: 30vmax;
+  padding: 0.35em 1em;
+  border-radius: 0.5em;
+  background-color: transparent;
+}
+
+#text-input:focus-visible {
+  outline: none;
+  border-color: blueviolet;
+  -webkit-box-shadow: inset 1px 1px 2px 0 rgba(133, 7, 176, 0.5);
+  box-shadow: inset 1px 1px 2px 0 rgba(133, 7, 176, 0.5);
+}
+
+.placeholder-text {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  font-size: 0.8rem;
+  padding: 0.28rem 0.5rem;
+}
+
+#text-input:focus-visible + .placeholder-text {
+  display: none;
+}
+
+article:first-child {
+  margin-top: 2em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  gap: 1em 0.5em;
+}
+
+.text-deco {
+  text-decoration: line-through;
+  text-decoration-color: blueviolet;
+}
