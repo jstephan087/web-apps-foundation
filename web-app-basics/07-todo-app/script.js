@@ -22,21 +22,23 @@ function renderTodos() {
     newTodo.appendChild(todoDescription);
     todoList.appendChild(newTodo);
 
-    if (todo.done) {
-      newTodo.setAttribute("class", "text-deco");
-    }
+    toggleDeco(todo, newTodo);
 
     checkbox.addEventListener("change", (stateCheckbox) => {
       const newTodoState = stateCheckbox.target.checked;
       todo.done = newTodoState;
-      if (todo.done) {
-        newTodo.setAttribute("class", "text-deco");
-      } else {
-        newTodo.removeAttribute("class");
-      }
+      toggleDeco(todo, newTodo);
       localStorage.setItem("state", JSON.stringify(state));
     });
   });
+}
+
+function toggleDeco(todo, newTodo) {
+  if (todo.done) {
+    newTodo.classList.add("text-deco");
+  } else {
+    newTodo.classList.remove("text-deco");
+  }
 }
 
 function randomId() {
