@@ -53,6 +53,13 @@ button {
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   margin: 1em 0 1.5em;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: rgb(183, 36, 194);
+  box-shadow: 0 0 5px 3px #e6e6e6;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 main {
