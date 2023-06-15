@@ -13,21 +13,22 @@ function renderTodos() {
   filterValue.forEach((todo) => {
     const newTodo = document.createElement("li");
     const checkbox = document.createElement("input");
+    const span = document.createElement("span");
     const todoDescription = document.createTextNode(todo.description);
 
     newTodo.id = todo.id;
     checkbox.type = "checkbox";
     checkbox.checked = todo.done;
     newTodo.appendChild(checkbox);
-    newTodo.appendChild(todoDescription);
+    newTodo.appendChild(span).appendChild(todoDescription);
     todoList.appendChild(newTodo);
 
-    toggleDeco(todo, newTodo);
+    toggleDeco(todo, span);
 
     checkbox.addEventListener("change", (stateCheckbox) => {
       const newTodoState = stateCheckbox.target.checked;
       todo.done = newTodoState;
-      toggleDeco(todo, newTodo);
+      toggleDeco(todo, span);
       localStorage.setItem("state", JSON.stringify(state));
     });
   });

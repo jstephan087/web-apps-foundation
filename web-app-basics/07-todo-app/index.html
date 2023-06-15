@@ -20,29 +20,31 @@
                 <label for="text-input" class="placeholder-text">Let's get this done... </label>
             </form>
             <button id="add-todo">Add</button>
-            <button id="remove-todos">Remove</button>
         </article>
-        <article id="filter">
-            <header>
-                <h2>Filter Options</h2>
-            </header>
-            <div>
-                <input type="radio" name="radio-button" id="all" checked="checked">
-                <label for="all">All</label>
-            </div>
-            <div>
-                <input type="radio" name="radio-button" id="open-todos">
-                <label for="open-todos">Open</label>
-            </div>
-            <div>
-                <input type="radio" name="radio-button" id="done">
-                <label for="done">Done</label>
-            </div>
-        </article>
-        <article>
-            <ul class="todo-list">
-            </ul>
-        </article>
+        <section class="nodepad">
+            <article id="filter">
+                <header>
+                    <h2>Filter Options</h2>
+                </header>
+                <div>
+                    <input type="radio" name="radio-button" id="all" checked="checked">
+                    <label for="all">All</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio-button" id="open-todos">
+                    <label for="open-todos">Open</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio-button" id="done">
+                    <label for="done">Done</label>
+                </div>
+            </article>
+            <article class="paper">
+                <ul class="todo-list">
+                </ul>
+                <button id="remove-todos">Remove</button>
+            </article>
+        </section>
     </main>
     <script src="script.js"></script>
     <script src="colorMix.js"></script>
