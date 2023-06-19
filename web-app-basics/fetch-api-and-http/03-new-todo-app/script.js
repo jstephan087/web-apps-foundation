@@ -64,7 +64,6 @@ function loadTodos() {
     .then((todosFromApi) => {
       todos = todosFromApi;
       renderTodos();
-      localStorage.setItem("state", JSON.stringify(todosFromApi));
     });
 }
 
@@ -127,7 +126,6 @@ function updateData(todoState) {
     .then((response) => response.json())
     .then((updatedTodoFromApi) => {
       console.log(updatedTodoFromApi);
-      localStorage.setItem("state", JSON.stringify(updatedTodoFromApi));
     });
 }
 
@@ -143,13 +141,11 @@ function addTodo(inputTodo) {
     .then((newTodoFromApi) => {
       todos.push(newTodoFromApi);
       createTodos(newTodoFromApi);
-      localStorage.setItem("state", JSON.stringify(newTodoFromApi));
     });
 }
 
 function checkForDuplicates() {
-  const localState = JSON.parse(localStorage.getItem("state"));
-  const test = localState.some((element) =>
+  const test = todos.some((element) =>
     newTodoInput.value
       .trim()
       .toLowerCase()
@@ -173,8 +169,7 @@ document
   .addEventListener("click", checkForDuplicates);
 
 document.querySelector("#remove-todos").addEventListener("click", () => {
-  const localState = JSON.parse(localStorage.getItem("state"));
-  const deleteTodos = localState.filter((filterTodo) => filterTodo.done);
+  const deleteTodos = todos.filter((filterTodo) => filterTodo.done);
   deleteTodos.forEach((delTodo) => {
     const todoId = delTodo.id;
     fetch(`http://localhost:4730/todos/${todoId}`, {
