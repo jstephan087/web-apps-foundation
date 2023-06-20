@@ -1,3 +1,6 @@
+"use strict";
+let todos;
+
 function mainHtml() {
   //Header Elements
   const topHeader = createEl("el", "header");
@@ -125,7 +128,7 @@ function updateData(todoState) {
   })
     .then((response) => response.json())
     .then((updatedTodoFromApi) => {
-      console.log(updatedTodoFromApi);
+      return updatedTodoFromApi;
     });
 }
 
@@ -140,7 +143,7 @@ function addTodo(inputTodo) {
     .then((res) => res.json())
     .then((newTodoFromApi) => {
       todos.push(newTodoFromApi);
-      createTodos(newTodoFromApi);
+      renderTodos();
     });
 }
 
@@ -161,21 +164,27 @@ function checkForDuplicates() {
     alert("Todo already exists");
   } else {
     addTodo(newTodoInput.value.trim());
+    newTodoInput.value = "";
   }
+}
+
+function deleteTodos() {
+  const deleteTodos = todos.filter((filterTodo) => filterTodo.done);
+  const deleteArray = [];
+  deleteTodos.map((delTodo) => {
+    deleteArray.push(
+      fetch(`http://localhost:4730/todos/${delTodo.id}`, {
+        method: "DELETE",
+      })
+    );
+  });
+  Promise.all(deleteArray).then(() => {
+    loadTodos();
+  });
 }
 
 document
   .querySelector("#add-todo")
   .addEventListener("click", checkForDuplicates);
 
-document.querySelector("#remove-todos").addEventListener("click", () => {
-  const deleteTodos = todos.filter((filterTodo) => filterTodo.done);
-  deleteTodos.forEach((delTodo) => {
-    const todoId = delTodo.id;
-    fetch(`http://localhost:4730/todos/${todoId}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => {});
-  });
-});
+document.querySelector("#remove-todos").addEventListener("click", deleteTodos);
